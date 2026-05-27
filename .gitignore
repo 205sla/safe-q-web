@@ -1,0 +1,17 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.thumbnail
+*.swp
+.vscode/
+.idea/
+
+# Node (혹시 도입 시)
+node_modules/
+package-lock.json
+yarn.lock
+dist/
+build/
+
+# Logs
+*.log
