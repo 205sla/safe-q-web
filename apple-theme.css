@@ -1,0 +1,174 @@
+/* ============================================================
+   Apple Tone Override
+   ------------------------------------------------------------
+   원본 colors_and_type.css 위에 얹어 발표 슬라이드의 Apple 톤과
+   웹 데모 톤을 일치시킵니다.
+
+   원전: 문서/HCI 디자이너 응답 + 발표_PPT_기획_최종.md §6
+        (출처: Apple.com 디자인 시스템 분석)
+
+   복원: index.html 에서 이 파일 <link> 한 줄만 제거하면 원본 톤으로
+        돌아갑니다. 원본 파일(colors_and_type.css·styles.css)은 무변경.
+   ============================================================ */
+
+:root {
+  /* ============ 1) 컬러 — 205 brand tokens 재매핑 ============ */
+
+  /* Mint → Action Blue (Apple 의 단일 액센트) */
+  --c205-mint:        #0066CC;
+  --c205-mint-soft:   #E6F0FA;
+  --c205-mint-tint:   #B3D4F0;
+  --c205-mint-hover:  #0058B0;
+  --c205-mint-deep:   #004E99;
+  --c205-mint-press:  #003D7A;
+
+  /* Pink → Sky Link Blue (다크 타일용 보조 액센트) */
+  --c205-pink:        #2997FF;
+  --c205-pink-soft:   #EAF4FF;
+  --c205-pink-tint:   #BFD9F7;
+  --c205-pink-hover:  #1380E8;
+  --c205-pink-press:  #0066CC;
+
+  /* Mood gray → Apple Near-Black Tile */
+  --c205-bg-mood:      #272729;
+  --c205-bg-mood-deep: #1D1D1F;
+  --c205-skin:         #F5F5F7;   /* Apple Parchment */
+  --c205-ink:          #1D1D1F;   /* Apple Near-Black Ink */
+
+  /* Entry secondary → 모두 Action Blue 로 통일 */
+  --brand-purple:        #0066CC;
+  --brand-purple-soft:   #E6F0FA;
+  --brand-purple-hover:  #0058B0;
+  --brand-purple-press:  #003D7A;
+  --brand-blue:          #0066CC;
+  --brand-blue-soft:     #E6F0FA;
+  --brand-blue-hover:    #0058B0;
+  --brand-blue-press:    #003D7A;
+
+  /* Apple 시스템은 장식 그라데이션 없음 */
+  --gradient-brand:    none;
+  --gradient-205-glow: none;
+
+  /* ============ 2) 표면 ============ */
+  --bg-1:    #FFFFFF;       /* White canvas */
+  --bg-2:    #F5F5F7;       /* Parchment */
+  --bg-3:    #FAFAFC;       /* Pearl button */
+  --bg-card: #FFFFFF;
+  --bg-soft-purple: #E6F0FA;
+  --bg-soft-blue:   #E6F0FA;
+
+  /* ============ 3) 전경 ============ */
+  --fg-1: #1D1D1F;
+  --fg-2: #1D1D1F;          /* Apple 은 본문 ink 단일 */
+  --fg-3: #6E6E73;          /* 보조 텍스트 */
+  --fg-4: #A1A1A6;
+  --fg-on-dark: #FFFFFF;
+  --fg-link:       #0066CC;
+  --fg-link-hover: #0058B0;
+
+  /* ============ 4) 보더 — 단일 헤어라인 ============ */
+  --border-1: #E0E0E0;
+  --border-2: #D2D2D7;
+
+  /* ============ 5) 그림자 — 모두 평면화 ============ */
+  --shadow-0: none;
+  --shadow-1: none;
+  --shadow-2: none;
+  --shadow-3: rgba(0, 0, 0, 0.22) 3px 5px 30px 0;  /* Apple 단 하나의 그림자 */
+  --shadow-4: rgba(0, 0, 0, 0.22) 3px 5px 30px 0;
+  --shadow-pink-glow:   none;
+  --shadow-mint-glow:   none;
+  --shadow-focus-ring:  0 0 0 2px #0071E3;          /* Focus Blue 2px outline */
+
+  /* ============ 6) 뉴트럴 ============ */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #F5F5F7;
+  --neutral-100: #F0F0F0;
+  --neutral-200: #E0E0E0;
+  --neutral-300: #D2D2D7;
+  --neutral-400: #A1A1A6;
+  --neutral-500: #86868B;
+  --neutral-600: #6E6E73;
+  --neutral-700: #4E4E50;
+  --neutral-800: #333333;
+  --neutral-900: #1D1D1F;
+
+  /* ============ 7) Semantic — 위험도 컬러 (예외 허용) ============ */
+  --color-success:      #16A34A;
+  --color-success-soft: #E6F5EC;
+  --color-warning:      #F59E0B;
+  --color-warning-soft: #FEF3CD;
+  --color-danger:       #DC2626;
+  --color-danger-soft:  #FEE2E2;
+  --color-info:         #0066CC;
+  --color-info-soft:    #E6F0FA;
+
+  /* ============ 8) 폰트 — Maplestory 등 장식 폰트 제거 ============ */
+  --font-display: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo",
+                  "Noto Sans KR", -apple-system, BlinkMacSystemFont,
+                  "Inter", system-ui, sans-serif;
+  --font-mark:    var(--font-display);
+  --font-hand:    var(--font-display);
+  --font-point:   var(--font-display);   /* OK Mallang 도 통합 */
+  --font-num:     "Pretendard Variable", "Inter", "JetBrains Mono", sans-serif;
+  /* --font-sans / --font-mono 는 원본 그대로 둠 (이미 적절) */
+
+  /* ============ 9) Tracking — Apple tight ============ */
+  /* 한글이 섞이지 않은 line 에는 적용. 한글 부분은 word-break: keep-all 로 보호됨 */
+  --tracking-tight: -0.022em;   /* ≈ -0.374px at 17px */
+  --tracking-snug:  -0.013em;
+}
+
+/* ============================================================
+   본문 — Apple 의 17px editorial pace
+   ============================================================ */
+body {
+  font-size: 17px;
+  letter-spacing: -0.011em;
+}
+
+/* ============================================================
+   장식 그라데이션 배경 명시적 제거
+   원본 styles.css 가 inline gradient 를 쓴 곳을 덮어쓰기
+   ============================================================ */
+.bg-mood-gradient,
+.brand-gradient,
+.hero-gradient {
+  background-image: none !important;
+  background-color: var(--c205-skin);
+}
+
+/* ============================================================
+   글로우 그림자 효과 제거 (Apple 은 단일 product shadow 만)
+   ============================================================ */
+.btn-mint-soft,
+.btn-mint,
+.btn-pink,
+.cta-primary,
+.cta-mint {
+  box-shadow: none !important;
+}
+
+/* 단, primary CTA hover 시 fill 만 진해지도록 */
+.btn-mint:hover,
+.cta-primary:hover {
+  background-color: var(--c205-mint-hover) !important;
+}
+
+/* ============================================================
+   포커스 링 — Apple 표준 2px Focus Blue
+   ============================================================ */
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid #0071E3 !important;
+  outline-offset: 2px;
+  box-shadow: none !important;
+}
+
+/* ============================================================
+   PWA 메타 톤 매칭
+   원본 index.html theme-color 는 민트(#5DD3C8) — 발표 시 Action Blue 가 더 일관됨
+   ============================================================ */
+/* 브라우저 chrome 톤은 index.html <meta name="theme-color">  값을 따로 바꿔야 함.
+   여기서는 CSS 로 직접 변경 불가하므로 README 에 표기. */
