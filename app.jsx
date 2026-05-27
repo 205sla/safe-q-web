@@ -93,10 +93,23 @@ const App = () => {
     setRoute(r => ({ ...r, screen: 'scan', risk: level, scanState: 'result' }));
   };
 
+  // 외부 카메라 아이콘 → 카메라 시뮬레이션 화면으로
+  const handleOpenCamera = () => {
+    // 비로그인 상태면 자동 로그인 (시연용)
+    if (!user && window.MOCK?.users?.[0]) setUser(window.MOCK.users[0]);
+    setRoute(r => ({ ...r, screen: 'camera' }));
+  };
+  // 카메라에서 QR 인식 → 우리 앱의 스캔 분석 화면으로 (Danger 로 극적 효과)
+  const handleCameraQR = () => {
+    setRoute(r => ({ ...r, screen: 'scan', scanState: 'loading', risk: 'Danger' }));
+  };
+
   const showTabs = user && ['home', 'scan', 'map'].includes(route.screen);
+  const isCameraView = route.screen === 'camera';
 
   return (
-    <div className="phone">
+    <>
+    <div className={`phone ${isCameraView ? 'is-camera' : ''}`}>
       <div className="dynamic-island"/>
       <div className="status-bar">
         <span>9:41</span>
@@ -149,6 +162,13 @@ const App = () => {
         {route.screen === 'map' && user && (
           <MapScreen/>
         )}
+        {route.screen === 'camera' && (
+          <CameraScreen
+            detectUrl="safe-q-web.app/scan"
+            onDetected={handleCameraQR}
+            onClose={() => setRoute(r => ({ ...r, screen: user ? 'home' : 'login' }))}
+          />
+        )}
         {route.screen === 'profile' && user && (
           <PlaceholderPage
             title="내 정보"
@@ -183,8 +203,30 @@ const App = () => {
 
       <ToastHost/>
     </div>
+
+    {/* 폰 외부 — iOS 홈스크린 스타일 카메라 앱 아이콘 (시연용) */}
+    <CameraAppIcon onOpen={handleOpenCamera} active={isCameraView}/>
+    </>
   );
 };
+
+const CameraAppIcon = ({ onOpen, active }) => (
+  <div className="ios-app-icon-stage">
+    <button
+      className={`ios-app-icon ios-app-icon-camera ${active ? 'is-active' : ''}`}
+      onClick={onOpen}
+      title="카메라 (시연용) — 클릭하면 폰에서 카메라 앱이 열립니다"
+      aria-label="카메라 시연 열기"
+    >
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M14.5 4l1.7 2H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3.8L9.5 4h5z"/>
+        <circle cx="12" cy="13" r="3.8"/>
+      </svg>
+    </button>
+    <span className="ios-app-icon-label">카메라</span>
+    <span className="ios-app-icon-hint">시연용 · 클릭하면 폰이 카메라로 전환됩니다</span>
+  </div>
+);
 
 const PlaceholderPage = ({ title, heading, body, onBack }) => (
   <div className="placeholder">
