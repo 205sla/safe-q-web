@@ -1,6 +1,6 @@
 # 📸 발표 백업용 캡처 가이드
 
-발표장 Wi-Fi·CDN 장애에 대비한 fallback 슬라이드 이미지. **Apple 톤 적용 후** 라이브 사이트 (https://205sla.github.io/safe-q-web/) 에서 캡처해 PPT 슬라이드 [19][20][21] 의 fallback 자료로 사용.
+발표장 Wi-Fi·CDN 장애에 대비한 fallback 슬라이드 이미지. **Apple 톤 적용 후** 라이브 사이트 (https://qr.205.kr/) 에서 캡처해 PPT 슬라이드 [19][20][21] 의 fallback 자료로 사용.
 
 ## 필요한 캡처 10장 (필수)
 

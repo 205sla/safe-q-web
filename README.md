@@ -6,7 +6,7 @@ QR / URL 피싱 탐지 및 공유 서비스의 발표용 프로토타입. 백엔
 
 ## 🌐 라이브 데모
 
-**👉 https://205sla.github.io/safe-q-web/**
+**👉 https://qr.205.kr/**
 
 GitHub Pages 로 호스팅되어 발표 중 어떤 브라우저에서든 접속 가능합니다.
 
@@ -25,7 +25,7 @@ GitHub Pages 로 호스팅되어 발표 중 어떤 브라우저에서든 접속 
 
 | 방법 | 명령 |
 |---|---|
-| 라이브 데모 | https://205sla.github.io/safe-q-web/ (브라우저 접속) |
+| 라이브 데모 | https://qr.205.kr/ (브라우저 접속) |
 | 로컬 실행 | `index.html` 더블 클릭 |
 | 로컬 정적 서버 | `python -m http.server 8080` 후 http://localhost:8080 |
 
@@ -70,7 +70,7 @@ GitHub Pages 로 호스팅되어 발표 중 어떤 브라우저에서든 접속 
 | 위험 지도 | `#/map` |
 | 로그인 | `#/login` |
 
-**예**: 발표 중 위험 화면을 즉시 보여주려면 → `https://205sla.github.io/safe-q-web/#/scan?risk=danger`
+**예**: 발표 중 위험 화면을 즉시 보여주려면 → `https://qr.205.kr/#/scan?risk=danger`
 
 ---
 
