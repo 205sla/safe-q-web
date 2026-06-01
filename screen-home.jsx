@@ -55,6 +55,21 @@ const HomeScreen = ({ user, onScan, onOpenResult, onLogout, onGoto }) => {
         </div>
       </div>
 
+      {/* 인앱 광고 — 핫딜 띠배너 (468x60, 폰 폭에 맞춰 축소) */}
+      <div className="inapp-ad">
+        <span className="inapp-ad__label">AD · 제휴</span>
+        <div className="inapp-ad__frame">
+          <iframe
+            src="ad-hotdeal.html"
+            title="핫딜 광고"
+            scrolling="no"
+            frameBorder="0"
+            loading="lazy"
+            sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+          />
+        </div>
+      </div>
+
       <button className="news-banner" onClick={() => onGoto('news')}>
         <div className="nb-icon"><Icon name="spark" size={20} color="#fff" strokeWidth={2.2} /></div>
         <div className="nb-text">

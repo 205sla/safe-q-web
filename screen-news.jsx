@@ -67,6 +67,21 @@ const NewsScreen = ({ onBack }) => {
         })}
       </div>
 
+      {/* 인앱 광고 — 미니샵 (목록 하단 보조 배너) */}
+      <div className="inapp-ad inapp-ad--mini">
+        <span className="inapp-ad__label">AD · 제휴</span>
+        <div className="inapp-ad__frame">
+          <iframe
+            src="ad.html"
+            title="제휴 광고"
+            scrolling="no"
+            frameBorder="0"
+            loading="lazy"
+            sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+          />
+        </div>
+      </div>
+
       {/* 상세 시트 */}
       {detail && (
         <div className="modal-backdrop" onClick={() => setOpenId(null)}>

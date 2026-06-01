@@ -1792,5 +1792,38 @@ body {
 .news-detail .nd-ex .ex-url { font-size: 13px; color: var(--fg-1); font-family: var(--font-mono); }
 .news-detail .nd-ex .ex-ago { font-size: 11px; color: var(--fg-4); margin-left: auto; }
 
+/* ============================================================
+   인앱 광고 (제휴) — 폰 내부 배너
+   ============================================================ */
+.inapp-ad {
+  margin: var(--space-4) 0 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  overflow: hidden;
+}
+.inapp-ad__label {
+  align-self: flex-start;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.06em;
+  color: var(--fg-4);
+}
+.inapp-ad__frame {
+  /* 468x60 원본을 폰 폭에 맞춰 축소 (scale 0.72 → 약 337x43) */
+  width: 337px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+}
+.inapp-ad__frame iframe {
+  width: 468px; height: 60px; border: 0; display: block;
+  transform: scale(0.72); transform-origin: center center;
+}
+/* 미니샵(120x60)은 축소 없이 그대로 */
+.inapp-ad--mini { margin: var(--space-5) 0 0; }
+.inapp-ad--mini .inapp-ad__frame { width: 120px; height: 60px; }
+.inapp-ad--mini .inapp-ad__frame iframe {
+  width: 120px; height: 60px; transform: none;
+}
+
 /* misc utility */
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
