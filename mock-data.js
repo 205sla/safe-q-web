@@ -4,7 +4,53 @@
 window.MOCK = {
   users: [
     { userId: "u001", username: "test", email: "test@safeqweb.kr",
-      passwordHash: "1234", otpEnabled: false, registeredAt: "2025-03-12" }
+      passwordHash: "1234", otpEnabled: false, registeredAt: "2025-03-12",
+      displayName: "김안전", phone: "010-1234-5678", plan: "무료" }
+  ],
+
+  // 내 정보 — 프로필
+  profile: {
+    displayName: "김안전",
+    username: "test",
+    email: "test@safeqweb.kr",
+    phone: "010-1234-5678",
+    registeredAt: "2025-03-12",
+    plan: "무료",
+    otpEnabled: false,
+    notifyDanger: true,
+    notifyGroup: true,
+    stats: { scanned: 47, blocked: 6, shared: 14 }
+  },
+
+  // 내가 속한 그룹 (멤버 상세 포함)
+  myGroups: [
+    {
+      groupId: "g01", name: "가족", icon: "users", role: "관리자",
+      members: [
+        { name: "김안전", role: "관리자", me: true },
+        { name: "김보호", role: "멤버" },
+        { name: "이안심", role: "멤버" },
+        { name: "박지킴", role: "멤버" }
+      ],
+      pending: [{ email: "grandpa@example.com", sentAt: "2일 전" }]
+    },
+    {
+      groupId: "g03", name: "친한 친구들", icon: "heart", role: "멤버",
+      members: [
+        { name: "최우정", role: "관리자" },
+        { name: "김안전", role: "멤버", me: true },
+        { name: "정의리", role: "멤버" }
+      ],
+      pending: []
+    },
+    {
+      groupId: "g04", name: "엔트리 동아리", icon: "code", role: "멤버",
+      members: [
+        { name: "이영호", role: "관리자" },
+        { name: "김안전", role: "멤버", me: true }
+      ],
+      pending: []
+    }
   ],
 
   // Three canonical scan results — one per risk level.

@@ -170,10 +170,9 @@ const App = () => {
           />
         )}
         {route.screen === 'profile' && user && (
-          <PlaceholderPage
-            title="내 정보"
-            heading={`${user.username} 님`}
-            body="계정 설정, 알림, 그룹 관리, 차단 목록 등이 들어가는 자리예요."
+          <ProfileScreen
+            user={user}
+            onLogout={handleLogout}
             onBack={() => setRoute(r => ({ ...r, screen: 'home' }))}
           />
         )}
