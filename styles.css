@@ -1702,5 +1702,95 @@ body {
 }
 .logout-row:active { transform: scale(0.99); }
 
+/* ============================================================
+   홈 — 최근 피싱 소식 진입 배너
+   ============================================================ */
+.news-banner {
+  display: flex; align-items: center; gap: var(--space-3); width: 100%;
+  margin: var(--space-4) 0 0;
+  background: var(--bg-card); border: 1px solid var(--border-1);
+  border-radius: var(--radius-lg); padding: 14px var(--space-4);
+  cursor: pointer; text-align: left;
+}
+.news-banner:active { transform: scale(0.99); }
+.news-banner .nb-icon {
+  width: 40px; height: 40px; flex-shrink: 0; border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--c205-pink) 0%, var(--c205-pink-press) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.news-banner .nb-text { flex: 1; min-width: 0; }
+.news-banner .nb-title { font-size: 15px; font-weight: 700; color: var(--fg-1); }
+.news-banner .nb-sub { font-size: 12px; color: var(--fg-3); margin-top: 1px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.news-banner .nb-new {
+  font-size: 9px; font-weight: 800; color: #fff; background: var(--color-danger);
+  padding: 2px 6px; border-radius: var(--radius-full); flex-shrink: 0; letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   최근 피싱 소식 화면
+   ============================================================ */
+.news-screen { padding: 0 var(--space-5) var(--space-8); }
+.news-screen .page-header .ph-left { display: flex; align-items: center; gap: var(--space-2); }
+.news-intro {
+  font-size: 13px; color: var(--fg-3); line-height: 1.5;
+  margin-bottom: var(--space-4);
+}
+
+/* 카테고리 칩 */
+.cat-chips {
+  display: flex; gap: var(--space-2); overflow-x: auto; padding-bottom: 4px;
+  margin-bottom: var(--space-3); scrollbar-width: none;
+}
+.cat-chips::-webkit-scrollbar { display: none; }
+.cat-chip {
+  flex-shrink: 0; font-size: 13px; font-weight: 600; color: var(--fg-3);
+  background: var(--bg-3); border: 1px solid transparent;
+  padding: 7px 14px; border-radius: var(--radius-full); cursor: pointer;
+  transition: all .15s;
+}
+.cat-chip.active { background: var(--c205-mint); color: #fff; }
+
+/* 기법 카드 */
+.news-list { display: flex; flex-direction: column; gap: var(--space-3); }
+.news-card {
+  width: 100%; text-align: left; cursor: pointer;
+  background: var(--bg-card); border: 1px solid var(--border-1);
+  border-radius: var(--radius-md); padding: var(--space-4);
+}
+.news-card:active { transform: scale(0.99); }
+.news-card .nc-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.news-card .nc-cat { font-size: 11px; color: var(--c205-mint-deep); font-weight: 600; }
+.news-card .nc-ago { font-size: 11px; color: var(--fg-4); margin-left: auto; }
+.news-card .nc-title { font-size: 16px; font-weight: 700; color: var(--fg-1); margin-bottom: 4px; }
+.news-card .nc-summary { font-size: 13px; color: var(--fg-2); line-height: 1.5; }
+.news-card .nc-foot {
+  display: flex; align-items: center; gap: 5px; margin-top: 10px;
+  font-size: 11px; color: var(--fg-3);
+}
+
+/* 상세 시트 */
+.news-detail { max-height: 82vh; overflow-y: auto; }
+.news-detail .nd-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.news-detail .nd-cat { font-size: 12px; color: var(--c205-mint-deep); font-weight: 600; }
+.news-detail .nd-date { font-size: 11px; color: var(--fg-4); margin-left: auto; }
+.news-detail .nd-title { font-size: 20px; font-weight: 800; color: var(--fg-1); margin: 2px 0 8px; }
+.news-detail .nd-desc { font-size: 14px; color: var(--fg-2); line-height: 1.6; margin-bottom: 16px; }
+.news-detail .nd-section-label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: var(--fg-1); margin-bottom: 8px;
+}
+.news-detail .nd-tips { list-style: none; padding: 0; margin: 0 0 18px; display: flex; flex-direction: column; gap: 8px; }
+.news-detail .nd-tips li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--fg-2); line-height: 1.5; }
+.news-detail .nd-tips li svg { flex-shrink: 0; margin-top: 2px; }
+.news-detail .nd-examples { display: flex; flex-direction: column; gap: 6px; }
+.news-detail .nd-ex {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg-2); border: 1px solid var(--border-1);
+  border-radius: var(--radius-sm); padding: 9px 12px;
+}
+.news-detail .nd-ex .ex-url { font-size: 13px; color: var(--fg-1); font-family: var(--font-mono); }
+.news-detail .nd-ex .ex-ago { font-size: 11px; color: var(--fg-4); margin-left: auto; }
+
 /* misc utility */
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }

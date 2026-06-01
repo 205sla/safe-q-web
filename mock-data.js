@@ -168,5 +168,102 @@ window.MOCK = {
     { zoneId: "z08", lat: 37.4837, lng: 126.9006, level: "High",   reportCount: 14, name: "사당역 환승구간",  updated: "8분 전",
       urls: ["bus-fake.xyz", "samsung-prize.cf"] }
   ],
-  currentLocation: { lat: 37.5012, lng: 127.0396, name: "역삼동" }
+  currentLocation: { lat: 37.5012, lng: 127.0396, name: "역삼동" },
+
+  // ── 최근 피싱 소식 (UC6) — PhishingTechnique + PhishingExample ──
+  phishingNews: [
+    {
+      techniqueId: "pt-001",
+      name: "택배 사칭 큐싱",
+      category: "택배",
+      level: "Danger",
+      registeredAt: "2026-05-26",
+      ago: "오늘",
+      summary: "택배 미수령·주소지 오류를 빙자해 QR을 스캔하게 한 뒤 악성 앱 설치를 유도해요.",
+      description: "‘주소지 불일치로 배송이 보류되었습니다’ 같은 문자와 함께 QR을 보냅니다. 스캔하면 정상 택배사 사이트처럼 보이는 피싱 페이지로 이동하고, 앱 설치(APK)나 개인정보 입력을 요구해요. 실제 택배사는 QR로 앱 설치를 요구하지 않습니다.",
+      tips: [
+        "택배 문자의 QR·링크는 누르지 말고 공식 앱에서 직접 조회하세요.",
+        "‘앱 설치’를 요구하는 택배 안내는 100% 사기예요.",
+        "운송장 번호는 택배사 공식 홈페이지에서만 확인하세요."
+      ],
+      examples: [
+        { url: "cj-delivery-check.xyz", addedAt: "2일 전" },
+        { url: "lotte-parcel.cf", addedAt: "4일 전" }
+      ]
+    },
+    {
+      techniqueId: "pt-002",
+      name: "은행 보안승급 사칭",
+      category: "금융",
+      level: "Danger",
+      registeredAt: "2026-05-24",
+      ago: "3일 전",
+      summary: "‘보안 승급이 필요합니다’ 문구로 은행 로그인 페이지를 사칭해 계정·OTP를 탈취해요.",
+      description: "은행을 사칭해 ‘보안 등급 갱신’ ‘비정상 거래 탐지’ 등을 이유로 QR/링크를 보냅니다. 진짜와 거의 똑같은 로그인 화면에서 아이디·비밀번호·OTP를 입력하게 해 즉시 출금을 시도해요.",
+      tips: [
+        "은행은 문자·QR로 보안 승급을 요구하지 않아요.",
+        "OTP 번호는 어떤 경우에도 입력·전달하지 마세요.",
+        "주소창의 도메인이 공식 은행 주소와 정확히 같은지 확인하세요."
+      ],
+      examples: [
+        { url: "kb-secure-login.cf", addedAt: "1일 전" },
+        { url: "shinhan-auth.xyz", addedAt: "3일 전" }
+      ]
+    },
+    {
+      techniqueId: "pt-003",
+      name: "공공기관 과태료 사칭",
+      category: "공공",
+      level: "Warning",
+      registeredAt: "2026-05-22",
+      ago: "5일 전",
+      summary: "교통 과태료·민원 처리 안내를 사칭해 결제·개인정보 입력을 유도해요.",
+      description: "경찰청·법원·국세청 등을 사칭해 ‘과태료 미납’ ‘출석 통지’ 등의 QR을 보냅니다. 정부24·이파인 등 공식 사이트와 유사하게 꾸며 카드 정보나 신분증 사진을 요구해요.",
+      tips: [
+        "공식 과태료는 정부24·이파인 등 정식 사이트에서만 확인하세요.",
+        "QR로 즉시 결제를 요구하면 의심하세요.",
+        "신분증 사진을 요구하면 절대 전송하지 마세요."
+      ],
+      examples: [
+        { url: "gov-fine-pay.click", addedAt: "5일 전" }
+      ]
+    },
+    {
+      techniqueId: "pt-004",
+      name: "무료 이벤트·경품 미끼",
+      category: "이벤트",
+      level: "Warning",
+      registeredAt: "2026-05-20",
+      ago: "1주 전",
+      summary: "‘무료 커피·경품 당첨’ QR로 개인정보 수집과 유료 결제를 유도해요.",
+      description: "카페·영화관·통신사 경품을 미끼로 길거리 전단이나 SNS에 QR을 뿌립니다. 당첨을 확인하려면 개인정보를 입력하거나 소액 결제를 하게 만들어요.",
+      tips: [
+        "출처가 불분명한 경품 QR은 스캔하지 마세요.",
+        "‘당첨 확인’에 결제·인증을 요구하면 사기예요.",
+        "공식 브랜드 채널에서 이벤트 여부를 확인하세요."
+      ],
+      examples: [
+        { url: "free-coffee-event.shop", addedAt: "1주 전" },
+        { url: "cgv-prize.click", addedAt: "9일 전" }
+      ]
+    },
+    {
+      techniqueId: "pt-005",
+      name: "QR 스티커 덧붙이기",
+      category: "오프라인",
+      level: "Danger",
+      registeredAt: "2026-05-18",
+      ago: "1주 전",
+      summary: "식당·주차장의 정상 결제 QR 위에 가짜 QR 스티커를 덧붙여 결제를 가로채요.",
+      description: "공공 주차장 정산기, 식당 테이블의 정상 QR 위에 피싱 QR 스티커를 붙입니다. 사용자는 정상 결제로 착각하지만 결제 정보가 공격자에게 전송돼요.",
+      tips: [
+        "QR 위에 스티커가 덧붙여진 흔적이 있는지 확인하세요.",
+        "결제 화면의 상호명·금액이 실제와 같은지 확인하세요.",
+        "가능하면 매장 직원에게 정식 결제 수단을 문의하세요."
+      ],
+      examples: [
+        { url: "parking-pay-fast.xyz", addedAt: "1주 전" }
+      ]
+    }
+  ]
 };

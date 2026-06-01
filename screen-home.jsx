@@ -55,6 +55,16 @@ const HomeScreen = ({ user, onScan, onOpenResult, onLogout, onGoto }) => {
         </div>
       </div>
 
+      <button className="news-banner" onClick={() => onGoto('news')}>
+        <div className="nb-icon"><Icon name="spark" size={20} color="#fff" strokeWidth={2.2} /></div>
+        <div className="nb-text">
+          <div className="nb-title">최근 피싱 소식</div>
+          <div className="nb-sub">택배 사칭 큐싱 등 새 수법 {(window.MOCK.phishingNews || []).length}건</div>
+        </div>
+        <span className="nb-new">NEW</span>
+        <Icon name="chevron-r" size={16} color="var(--fg-4)" />
+      </button>
+
       <div className="section-head">
         <h3>최근 스캔 이력</h3>
         <button className="more" onClick={() => toast('이력 화면은 데모 범위 밖이에요')}>

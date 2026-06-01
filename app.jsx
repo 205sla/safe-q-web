@@ -104,7 +104,7 @@ const App = () => {
     setRoute(r => ({ ...r, screen: 'scan', scanState: 'loading', risk: 'Danger' }));
   };
 
-  const showTabs = user && ['home', 'scan', 'map'].includes(route.screen);
+  const showTabs = user && ['home', 'scan', 'map', 'news', 'profile'].includes(route.screen);
   const isCameraView = route.screen === 'camera';
 
   return (
@@ -173,6 +173,11 @@ const App = () => {
           <ProfileScreen
             user={user}
             onLogout={handleLogout}
+            onBack={() => setRoute(r => ({ ...r, screen: 'home' }))}
+          />
+        )}
+        {route.screen === 'news' && user && (
+          <NewsScreen
             onBack={() => setRoute(r => ({ ...r, screen: 'home' }))}
           />
         )}
